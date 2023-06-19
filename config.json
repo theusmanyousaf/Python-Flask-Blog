@@ -1,0 +1,19 @@
+{
+  "params":
+  {
+    "blog_name": "Genesis",
+    "local_server": "True",
+    "local_uri": "mysql://root:@localhost/genesis",
+    "prod_uri": "mysql://root:@localhost/genesis",
+    "tw_url": "https://www.twitter.com",
+    "fb_url": "https://www.facebook.com",
+    "github_url": "https://www.github.com",
+    "gmail_user": "email@gmail.com",
+    "gmail_password": "urPassword@gmail",
+    "no_of_posts": 1,
+    "logo": "bootstrap-logo.svg",
+    "admin_id": "admin",
+    "admin_password": "10administer",
+    "upload_location": "D:\\Python\\Projects\\Flask-project-02\\static"
+  }
+}

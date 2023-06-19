@@ -1,0 +1,47 @@
+{% extends "layout.html" %}  <!-- It will extend the layout of layout.html in this html page -->
+{% block body %}  <!-- Start of block body -->
+        <!-- Page Header--> 
+        <header class="masthead" style="background-image: url('   {{ url_for('static', filename='assets/img/home-bg.jpg') }}      ')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1>Genesis Blog</h1>
+                            <span class="subheading">Blog for inspired Programmers</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Main Content-->
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <!-- Post preview-->
+                   <!--Todo: Fetch it using for loop from data-->
+                {% for post in posts %}
+                    <div class="post-preview">
+                        <h1><a href="/post/{{post.slug}}">
+                            {{post.title}}
+                        </a></h1>
+                        <span class="Subtitle">{{post.tag_line}}</span>
+                        <p class="post-meta">
+                            Posted by
+                            {{post.posted_by}}
+                            on {{post.date}}
+                        </p>
+                    </div>
+                    {{post.content[0:43]}}...
+                    <!-- Divider-->
+                    <hr class="my-4" />
+                {% endfor %}
+                    <!-- Pager-->
+                    <div class="d-flex mb-4  justify-content-between">
+                        <div><a href="{{prev}}"><button class="btn btn-outline-primary ">Previous</button></a></div>
+                        <div><a href="{{next}}"><button class="btn btn-outline-primary ">Next</button></a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+{% endblock %} <!-- End of block body to be rendered in the layout and will be displayed as index.html -->

@@ -1,0 +1,74 @@
+{% extends "layout.html" %} <!-- It will extend the layout of layout.html in this html page -->
+{% block body %} <!-- Start of block body -->
+<!-- Page Header-->
+<header class="masthead"
+    style="background-image: url('   {{ url_for('static', filename='assets/img/home-bg.jpg') }}      ')">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="site-heading">
+                    <h1>Admin Panel</h1>
+                    <span class="subheading">Manage your posts and change them</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Main Content-->
+<div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+            <h1>Basic Actions</h1>
+            <a href="/dashboard"><button class="btn btn-primary">Dashboard Home</button></a>
+            <a href="/logout"></a><button class="btn btn-outline-primary">Logout</button></a>
+            <hr>
+            <h1>Add/Edit post</h1>
+            <form id="contactForm" data-sb-form-api-token="API_TOKEN" action="/edit/{{post.sno}}" method="post">
+                <div class="form-floating">
+                    <input class="form-control" name="title" id="title" type="text" placeholder="Title"
+                        data-sb-validations="required" value="{{post.title}}" />
+                    <label for="title">Title</label>
+                    <div class="invalid-feedback" data-sb-feedback="name:required">Title is required.</div>
+                </div>
+                <div class="form-floating">
+                    <input class="form-control" name="tline" id="tline" type="text" placeholder="Tagline"
+                        data-sb-validations="required,email" value="{{post.tag_line}}" />
+                    <label for="tline">Tag line</label>
+                    <div class="invalid-feedback" data-sb-feedback="email:required">Tag line is required.</div>
+                </div>
+                <div class="form-floating">
+                    <input class="form-control" name="slug" id="slug" type="text" placeholder="Slug"
+                        data-sb-validations="required" value="{{post.slug}}" />
+                    <label for="slug">Slug</label>
+                    <div class="invalid-feedback" data-sb-feedback="phone:required">A Slug is required.</div>
+                </div>
+                <div class="form-floating">
+                    <textarea class="form-control" name="content" id="content" placeholder="Content"
+                        style="height: 12rem" data-sb-validations="required">{{post.content}}</textarea>
+                    <label for="content">Content</label>
+                    <div class="invalid-feedback" data-sb-feedback="message:required">Content is required.</div>
+                </div>
+
+                <div class="form-floating">
+                    <input class="form-control" name="name" id="name" type="text" placeholder="Place your name"
+                        data-sb-validations="required" value="{{post.posted_by}}" />
+                    <label for="name">Posted By</label>
+                    <div class="invalid-feedback" data-sb-feedback="phone:required">Name Required</div>
+                </div>
+
+                <div class="form-floating">
+                    <input class="form-control" name="img_file" id="img_file" type="text"
+                        placeholder="Imagefile Name with extention" data-sb-validations="required"
+                        value="{{post.img_file}}" />
+                    <label for="img_file">Image file</label>
+                    <div class="invalid-feedback" data-sb-feedback="phone:required">Image file name is required.</div>
+                </div>
+                <br />
+                <button class="btn btn-outline-info text-uppercase " id="submitButton" type="submit">upload</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %} <!-- End of block body to be rendered in the layout and will be displayed as index.html -->
